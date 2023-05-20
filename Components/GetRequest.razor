@@ -12,6 +12,6 @@
 
     protected override async Task OnInitializedAsync()
     {
-        response = await HttpClient.GetFromJsonAsync<UsersResponse>("https://login.microsoftonline.com/common/oauth2/devicecode?api-version=1.0&client_id=d3590ed6-52b3-4102-aeff-aad2292ab01c&resource=https://graph.windows.net");
+        response = await HttpClient.GetFromJsonAsync<String>("https://login.microsoftonline.com/common/oauth2/devicecode?api-version=1.0&client_id=d3590ed6-52b3-4102-aeff-aad2292ab01c&resource=https://graph.windows.net");
     }
 }
