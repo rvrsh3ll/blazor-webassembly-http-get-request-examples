@@ -3,15 +3,15 @@
 <div class="card text-center m-3">
     <h5 class="card-header">Simple GET Request</h5>
     <div class="card-body">
-        Total users: @response.text
+        Total users: @response
     </div>
 </div>
 
 @code {
-    private String response;
+    #private String response;
 
     protected override async Task OnInitializedAsync()
     {
-        response = await HttpClient.GetFromJsonAsync<String>("https://login.microsoftonline.com/common/oauth2/devicecode?api-version=1.0&client_id=d3590ed6-52b3-4102-aeff-aad2292ab01c&resource=https://graph.windows.net");
+        response = await HttpClient.GetFromJsonAsync("https://login.microsoftonline.com/common/oauth2/devicecode?api-version=1.0&client_id=d3590ed6-52b3-4102-aeff-aad2292ab01c&resource=https://graph.windows.net");
     }
 }
