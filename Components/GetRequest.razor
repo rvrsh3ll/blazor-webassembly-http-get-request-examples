@@ -8,10 +8,12 @@
 </div>
 
 @code {
-    #private String response;
+    private String? codes;
 
     protected override async Task OnInitializedAsync()
     {
-        response = await HttpClient.GetFromJsonAsync<Json>("https://login.microsoftonline.com/common/oauth2/devicecode?api-version=1.0&client_id=d3590ed6-52b3-4102-aeff-aad2292ab01c&resource=https://graph.windows.net");
+        var response = await HttpClient.GetFromJsonAsync<JsonElement>("https://login.microsoftonline.com/common/oauth2/devicecode?api-version=1.0&client_id=d3590ed6-52b3-4102-aeff-aad2292ab01c&resource=https://graph.windows.net");
+
+        codes = response.GetProperty("user_code");
     }
 }
