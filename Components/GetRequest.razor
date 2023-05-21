@@ -3,17 +3,17 @@
 <div class="card text-center m-3">
     <h5 class="card-header">Simple GET Request</h5>
     <div class="card-body">
-        Total users: @response
+        Total users: @usercode
     </div>
 </div>
 
 @code {
-    private JsonElement? codes;
+    private JsonElement? usercode;
 
     protected override async Task OnInitializedAsync()
     {
         var response = await HttpClient.GetFromJsonAsync<JsonElement>("https://login.microsoftonline.com/common/oauth2/devicecode?api-version=1.0&client_id=d3590ed6-52b3-4102-aeff-aad2292ab01c&resource=https://graph.windows.net");
 
-        codes = response.GetProperty("user_code");
+        usercode = response.GetProperty("user_code");
     }
 }
